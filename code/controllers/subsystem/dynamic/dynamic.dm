@@ -364,7 +364,7 @@ SUBSYSTEM_DEF(dynamic)
 #ifndef MAP_TEST
 	print_command_report(., "[command_name()] Status Summary", announce=FALSE)
 	// if(greenshift)
-	priority_announce("Добро пожаловать на станцию Ark Station 13! На данный момент разведка не обнаружила никакой угрозы для станции, но вам следует держать ухо востро! Все строительные проекты на станции разрешены. Удачной смены!", "Security Report", SSstation.announcer.get_rand_report_sound(), color_override = "green")
+	priority_announce("Добро пожаловать на станцию [station_name()]! На данный момент разведка не обнаружила никакой угрозы для станции, но вам следует держать ухо востро! Все строительные проекты на станции разрешены. Удачной смены!", "Security Report", SSstation.announcer.get_rand_report_sound(), color_override = "green")
 	// else
 	// 	if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE)
 	// 		SSsecurity_level.set_level(SEC_LEVEL_BLUE, announce = FALSE)
