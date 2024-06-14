@@ -31,7 +31,7 @@ SERVERNAME Temm4ancki ARKstation
 # SERVERSQLNAME tgstation
 
 ## Station name: The name of the station as it is referred to in-game. If commented out, the game will generate a random name instead.
-STATIONNAME Space ARKstation 13
+#STATIONNAME Space ARKstation 13
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
 #HUB
@@ -74,7 +74,7 @@ ENABLE_LOCALHOST_RANK
 #USE_ACCOUNT_AGE_FOR_JOBS
 
 ## Unhash this to track player playtime in the database. Requires database to be enabled.
-#USE_EXP_TRACKING
+USE_EXP_TRACKING
 ## Unhash this to enable playtime requirements for head jobs.
 #USE_EXP_RESTRICTIONS_HEADS
 ## Unhash this to override head jobs' playtime requirements with this number of hours.

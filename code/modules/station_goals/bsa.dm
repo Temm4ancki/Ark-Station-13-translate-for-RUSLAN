@@ -13,10 +13,10 @@ GLOBAL_VAR_INIT(bsa_unlock, FALSE)
 
 /datum/station_goal/bluespace_cannon/get_report()
 	return list(
-		"<blockquote>Our military presence is inadequate in your sector.",
-		"We need you to construct BSA-[rand(1,99)] Artillery position aboard your station.",
+		"<blockquote>Наше военное присутствие в вашем секторе недостаточно.",
+		"Нам нужно, чтобы вы построили артиллерийскую позицию BSA-[rand(1,99)] на борту вашей станции.",
 		"",
-		"Base parts are available for shipping via cargo.",
+		"Базовые части доступны для доставки в Карго..",
 		"-Nanotrasen Naval Command</blockquote>",
 	).Join("\n")
 

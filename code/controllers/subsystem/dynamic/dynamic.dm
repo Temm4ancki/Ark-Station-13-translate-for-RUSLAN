@@ -364,11 +364,11 @@ SUBSYSTEM_DEF(dynamic)
 #ifndef MAP_TEST
 	print_command_report(., "[command_name()] Status Summary", announce=FALSE)
 	// if(greenshift)
-	priority_announce("Добро пожаловать на станцию [station_name()]! На данный момент разведка не обнаружила никакой угрозы для станции, но вам следует держать ухо востро! Все строительные проекты на станции разрешены. Удачной смены!", "Security Report", SSstation.announcer.get_rand_report_sound(), color_override = "green")
+	priority_announce("Welcome to Ark Station 13! Intelligence has not detected any threat to the Station at this time, but you should keep your ears open! All station construction projects have been authorized. Have a secure shift!", "Security Report", SSstation.announcer.get_rand_report_sound(), color_override = "green")
 	// else
 	// 	if(SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_BLUE)
 	// 		SSsecurity_level.set_level(SEC_LEVEL_BLUE, announce = FALSE)
-	// 	priority_announce("[SSsecurity_level.current_security_level.elevating_to_announcement]\n\nСводка была скопирована и распечатана на всех пультах связи.", "Security level elevated.", ANNOUNCER_INTERCEPT, color_override = SSsecurity_level.current_security_level.announcement_color)
+	// 	priority_announce("[SSsecurity_level.current_security_level.elevating_to_announcement]\n\nA summary has been copied and printed to all communications consoles.", "Security level elevated.", ANNOUNCER_INTERCEPT, color_override = SSsecurity_level.current_security_level.announcement_color)
 #endif
 
 	return .
@@ -376,20 +376,20 @@ SUBSYSTEM_DEF(dynamic)
 /// Generate the advisory level depending on the shown threat level.
 /datum/controller/subsystem/dynamic/proc/generate_advisory_level()
 	var/advisory_string = ""
-	if (prob(PULSAR_REPORT_CHANCE))
-		if(HAS_TRAIT(SSstation, STATION_TRAIT_BANANIUM_SHIPMENTS))
-			advisory_string += "Advisory Level: <b>Clown Planet</b></center><BR>"
-			advisory_string += "Консультативный уровень вашего сектора — Clown Planet Наши велосипедные гудки нашли большой тайник с бананами. Клоуны показывают большой наплыв клоунов на вашей станции. Мы настоятельно советуем вам избегать любых угроз, чтобы сохранить активы Honkotrasen в Banana Sector. Департамент разведки советует защищать химию от любых клоунов, которые пытаются изготовить балдиум или космическую смазку."
-			return advisory_string
+	if(prob(PULSAR_REPORT_CHANCE))
+		for(var/datum/station_trait/our_trait as anything in shuffle(SSstation.station_traits))
+			advisory_string += our_trait.get_pulsar_message()
+			if(length(advisory_string))
+				return advisory_string
 
 		advisory_string += "Advisory Level: <b>Pulsar Star</b></center><BR>"
-		advisory_string += "Консультативный уровень вашего сектора — Pulsar Star. Мощное неизвестное электромагнитное поле прорвалось через находящееся поблизости оборудование наблюдения, что привело к серьезной потере данных. Частичные данные были восстановлены и не выявили серьезных угроз активам Nanotrasen в Spinward Sector; однако Департамент разведки рекомендует сохранять повышенную готовность к потенциальным угрозам из-за отсутствия полных данных."
+		advisory_string += "Your sector's advisory level is Pulsar Star. A large, unknown electromagnetic field has stormed through nearby surveillance equipment, causing major data loss. Partial data was recovered and showed no credible threats to Nanotrasen assets within the Spinward Sector; however, the Department of Intelligence advises maintaining high alert against potential threats due to the lack of complete data."
 		return advisory_string
 
 	switch(round(shown_threat))
 		if(0)
 			advisory_string += "Advisory Level: <b>White Dwarf</b></center><BR>"
-			advisory_string += "Консультативный уровень вашего сектора — White Dwarf. Наше наблюдение исключило любые потенциальные угрозы, известные в нашей базе данных, устранив большинство рисков для наших активов во Вращающемся секторе. Мы советуем снизить уровень безопасности, а также распределить ресурсы по потенциальной прибыли."
+			advisory_string += "Your sector's advisory level is White Dwarf. Our surveillance has ruled out any and all potential threats known in our database, eliminating most risks to our assets in the Spinward Sector. We advise a lower level of security, alongside distributing resources on potential profit."
 		if(1 to 19)
 			var/show_core_territory = (GLOB.current_living_antags.len > 0)
 			if (prob(FAKE_GREENSHIFT_FORM_CHANCE))
@@ -397,25 +397,25 @@ SUBSYSTEM_DEF(dynamic)
 
 			if (show_core_territory)
 				advisory_string += "Advisory Level: <b>Blue Star</b></center><BR>"
-				advisory_string += "Консультативный уровень вашего сектора — Blue Star. Согласно этому сообщению об угрозах, риск атак на активы Nanotrasen внутри сектора незначителен, но его нельзя исключать полностью. Сохраняйте бдительность."
+				advisory_string += "Your sector's advisory level is Blue Star. At this threat advisory, the risk of attacks on Nanotrasen assets within the sector is minor but cannot be ruled out entirely. Remain vigilant."
 			else
 				advisory_string += "Advisory Level: <b>Green Star</b></center><BR>"
-				advisory_string += "Консультативный уровень вашего сектора - Green Star. Информация наблюдения не показывает в настоящее время никаких реальных угроз активам Nanotrasen в Spinward Sector. Как всегда, Департамент разведки советует сохранять бдительность в отношении потенциальных угроз, несмотря на отсутствие известных угроз."
+				advisory_string += "Your sector's advisory level is Green Star. Surveillance information shows no credible threats to Nanotrasen assets within the Spinward Sector at this time. As always, the Department of Intelligence advises maintaining vigilance against potential threats, regardless of a lack of known threats."
 		if(20 to 39)
 			advisory_string += "Advisory Level: <b>Yellow Star</b></center><BR>"
-			advisory_string += "Консультативный уровень вашего сектора — Yellow Star. Наблюдение показывает реальный риск нападения противника на наши объекты в Spinward Sector. Мы советуем повысить уровень безопасности и сохранять бдительность в отношении потенциальных угроз."
+			advisory_string += "Your sector's advisory level is Yellow Star. Surveillance shows a credible risk of enemy attack against our assets in the Spinward Sector. We advise a heightened level of security alongside maintaining vigilance against potential threats."
 		if(40 to 65)
 			advisory_string += "Advisory Level: <b>Orange Star</b></center><BR>"
-			advisory_string += "Консультативный уровень вашего сектора — Orange Star. Изучив разведданные вашего сектора, Департамент определил, что риск активности противника варьируется от умеренного до серьезного. В связи с этим сообщением мы рекомендуем поддерживать более высокий уровень безопасности и пересмотреть протоколы красной тревоги с командованием и экипажем."
+			advisory_string += "Your sector's advisory level is Orange Star. Upon reviewing your sector's intelligence, the Department has determined that the risk of enemy activity is moderate to severe. At this advisory, we recommend maintaining a higher degree of security and reviewing red alert protocols with command and the crew."
 		if(66 to 79)
 			advisory_string += "Advisory Level: <b>Red Star</b></center><BR>"
-			advisory_string += "Консультативный уровень вашего сектора — Red Star. Департамент разведки расшифровал сообщения Cybersun, что указывает на высокую вероятность атак на активы Nanotrasen в Spinward Sector. Станциям в регионе рекомендуется сохранять повышенную бдительность в отношении признаков активности противника и находиться в состоянии повышенной боевой готовности."
+			advisory_string += "Your sector's advisory level is Red Star. The Department of Intelligence has decrypted Cybersun communications suggesting a high likelihood of attacks on Nanotrasen assets within the Spinward Sector. Stations in the region are advised to remain highly vigilant for signs of enemy activity and to be on high alert."
 		if(80 to 99)
 			advisory_string += "Advisory Level: <b>Black Orbit</b></center><BR>"
-			advisory_string += "Консультативный уровень вашего сектора — Black Orbit. Местная сеть связи вашего сектора в настоящее время отключена, и поэтому мы не можем точно судить о передвижениях противника в регионе. Однако информация, переданная нам GDI, предполагает высокую активность противника в этом секторе, что указывает на готовящееся нападение. Сохраняйте повышенную бдительность и бдительность в отношении любых других потенциальных угроз."
+			advisory_string += "Your sector's advisory level is Black Orbit. Your sector's local communications network is currently undergoing a blackout, and we are therefore unable to accurately judge enemy movements within the region. However, information passed to us by GDI suggests a high amount of enemy activity in the sector, indicative of an impending attack. Remain on high alert and vigilant against any other potential threats."
 		if(100)
 			advisory_string += "Advisory Level: <b>Midnight Sun</b></center><BR>"
-			advisory_string += "Консультативный уровень вашего сектора — Midnight Sun. Достоверная информация, переданная нам GDI, предполагает, что Синдикат готовится организовать крупное согласованное наступление на активы Nanotrasen в Spinward Sector, чтобы подорвать наш плацдарм там. Все станции должны оставаться в состоянии повышенной боевой готовности и быть готовыми к самозащите."
+			advisory_string += "Your sector's advisory level is Midnight Sun. Credible information passed to us by GDI suggests that the Syndicate is preparing to mount a major concerted offensive on Nanotrasen assets in the Spinward Sector to cripple our foothold there. All stations should remain on high alert and prepared to defend themselves."
 
 	return advisory_string
 
