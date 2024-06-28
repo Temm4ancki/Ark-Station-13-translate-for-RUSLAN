@@ -13,13 +13,17 @@
 		#include "map_files\Mining\Lavaland.dmm"
 		#include "ark_map_files\ark_maps\north_star.dmm"
 		#include "ark_map_files\ark_maps\tramstation.dmm"
+		#include "map_files\wawastation\wawastation.dmm"
 		// NOVA EDIT ADDITON START - Compiling our modular maps too!
 		#include "ark_map_files\ark_maps\VoidRaptor.dmm"
 		#include "ark_map_files\ark_maps\Blueshift.dmm"
 		#include "ark_map_files\ark_maps\Ouroboros.dmm"
 		// NOVA EDIT END
+
 		// ARK STATION ADDITION START
 		#include "ark_map_files\ark_maps\KiloStation2.dmm"
+		#include "ark_map_files\ark_maps\PubbyStation.dmm"
+		#include "ark_map_files\ark_maps\NSSJourney.dmm"
 		//#include "ark_map_files\ark_maps\OmegaStation.dmm"
 		// ARK STATION ADDITION END
 		#ifdef CIBUILDING

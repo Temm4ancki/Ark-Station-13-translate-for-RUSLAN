@@ -490,7 +490,7 @@ const CargoCart = (props) => {
           ))}
         </Table>
       )}
-      {cart.length > 0 && !requestonly && (
+      {cart.length > 0 && !!can_send && (
         <Box mt={2}>
           {(away === 1 && docked === 1 && (
             <Button
@@ -568,7 +568,7 @@ const CargoHelp = (props) => {
         <b>4.</b> Stick it on the conveyor and let the system handle it.
         <br />
       </Section>
-      <NoticeBox textAlign="center" info mb={0}>
+      <NoticeBox textAlign="center" mb={0}>
         Pondering something not included here? When in doubt, ask the QM!
       </NoticeBox>
     </>

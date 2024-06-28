@@ -1,12 +1,16 @@
-/obj/structure/table/MouseDrop_T(obj/item/O, mob/living/user, params)
+/obj/structure/table/mouse_drop_receive(obj/item/O, mob/living/user, params)
 	var/list/modifiers = params2list(params)
 	if(ismob(O))
 		return ..()
 
-	else if(isturf(O.loc) && isitem(O))
-		var/obj/item/I = O
-		if(I.anchored)
-			return
+	if(!isitem(O))
+		return
+
+	if(O.anchored == TRUE)
+		return
+
+	if(O.w_class >= WEIGHT_CLASS_GIGANTIC)
+		return
 
 	if(iscarbon(user))
 		var/mob/living/carbon/new_user = user

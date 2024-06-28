@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/_Topic(datum/hsrc, href, list/href_list)
 	return hsrc.Topic(href, href_list)
 
-// /client/proc/is_content_unlocked()
+// /client/proc/is_content_unlocked() // ARK STATION REMOVAL
 // 	if(!prefs.unlock_content)
 // 		to_chat(src, "Become a BYOND member to access member-perks and features, as well as support the engine that makes this game possible. Only 10 bucks for 3 months! <a href=\"https://secure.byond.com/membership\">Click Here to find out more</a>.")
 // 		return FALSE
@@ -217,7 +217,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			return TRUE
 		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
 			//"auto-ban" sends the message that the cold and uncaring gamecode has been designed to quiash you like a bug in short measure should you continue, and it's quite intentional that the user isn't told exactly what that entails.
-			to_chat(src, span_danger("You are nearing the auto-ban limit for identical messages."))
+			to_chat(src, span_userdanger("You are nearing the auto-ban limit for identical messages."))
+			mob.balloon_alert(mob, "stop spamming!")
 			return FALSE
 	else
 		last_message = message
@@ -460,10 +461,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			to_chat_immediate(src, "Web client is disabled")
 			qdel(src)
 			return
-		if (CONFIG_GET(flag/webclient_only_byond_members) && !IsByondMember())
-			to_chat_immediate(src, "Sorry, but the web client is restricted to byond members only.")
-			qdel(src)
-			return
+		// if (CONFIG_GET(flag/webclient_only_byond_members) && !IsByondMember()) // ARK STATION REMOVAL // We are Russians
+		// 	to_chat_immediate(src, "Sorry, but the web client is restricted to byond members only.") // ARK STATION REMOVAL // We are Russians
+		// 	qdel(src) // ARK STATION REMOVAL // We are Russians
+		// 	return // ARK STATION REMOVAL // We are Russians
 
 	if( (world.address == address || !address) && !GLOB.host )
 		GLOB.host = key

@@ -360,6 +360,7 @@
 		/obj/item/picket_sign/cyborg,
 		/obj/item/reagent_containers/borghypo/clown,
 		/obj/item/extinguisher/mini,
+		/obj/item/gps/cyborg, //ARK STATION EDIT
 	)
 	emag_modules = list(
 		/obj/item/reagent_containers/borghypo/clown/hacked,
@@ -403,6 +404,7 @@
 		/obj/item/lightreplacer/cyborg, // NOVA EDIT ADDITION - Surprised Engie borgs don't get these
 		/obj/item/stack/tile/iron/base/cyborg,
 		/obj/item/stack/cable_coil,
+		/obj/item/gps/cyborg, //ARK STATION EDIT
 	)
 	radio_channels = list(RADIO_CHANNEL_ENGINEERING)
 	emag_modules = list(
@@ -431,6 +433,7 @@
 		/obj/item/holosign_creator,
 		/obj/item/reagent_containers/spray/cyborg_drying,
 		/obj/item/wirebrush,
+		/obj/item/gps/cyborg, //ARK STATION EDIT
 	)
 	radio_channels = list(RADIO_CHANNEL_SERVICE)
 	emag_modules = list(
@@ -656,8 +659,7 @@
 	..()
 	var/obj/item/lightreplacer/light_replacer = locate(/obj/item/lightreplacer) in basic_modules
 	if(light_replacer)
-		for(var/charge in 1 to coeff)
-			light_replacer.Charge(cyborg)
+		light_replacer.Charge(cyborg, coeff)
 
 	var/obj/item/reagent_containers/spray/cyborg_drying/drying_agent = locate(/obj/item/reagent_containers/spray/cyborg_drying) in basic_modules
 	if(drying_agent)
@@ -692,6 +694,8 @@
 		/obj/item/stack/medical/bone_gel,
 		/obj/item/borg/apparatus/organ_storage,
 		/obj/item/borg/lollipop,
+		/obj/item/gps/cyborg, //ARK STATION EDIT
+		/obj/item/pinpointer/crew, //ARK STATION EDIT
 	)
 	radio_channels = list(RADIO_CHANNEL_MEDICAL)
 	emag_modules = list(
@@ -747,6 +751,7 @@
 		/obj/item/borg/cyborghug/peacekeeper,
 		/obj/item/extinguisher,
 		/obj/item/borg/projectile_dampen,
+		/obj/item/gps/cyborg, //ARK STATION EDIT
 	)
 	emag_modules = list(
 		/obj/item/reagent_containers/borghypo/peace/hacked,
@@ -770,6 +775,7 @@
 		/obj/item/gun/energy/disabler/cyborg,
 		/obj/item/clothing/mask/gas/sechailer/cyborg,
 		/obj/item/extinguisher/mini,
+		/obj/item/gps/cyborg, //ARK STATION EDIT
 	)
 	radio_channels = list(RADIO_CHANNEL_SECURITY)
 	emag_modules = list(
@@ -830,6 +836,7 @@
 		/obj/item/chisel,
 		/obj/item/reagent_containers/cup/rag,
 		/obj/item/storage/bag/money,
+		/obj/item/gps/cyborg, //ARK STATION EDIT
 	)
 	radio_channels = list(RADIO_CHANNEL_SERVICE)
 	emag_modules = list(

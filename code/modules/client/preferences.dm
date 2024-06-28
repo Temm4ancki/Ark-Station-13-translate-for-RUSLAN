@@ -109,7 +109,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		load_path(parent.ckey)
 		if(load_and_save && !fexists(path))
 			try_savefile_type_migration()
-		unlock_content = !!parent.IsByondMember()
+		unlock_content = TRUE // ARK STATION EDIT // We are Russians
 		donator_status = !!GLOB.donator_list[parent.ckey] //NOVA EDIT ADD - DONATOR CHECK
 		if(unlock_content || donator_status) //NOVA EDIT CHANGE - ADD DONATOR CHECK
 			max_save_slots = 50 //NOVA EDIT - ORIGINAL 8
@@ -208,7 +208,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	data["overflow_role"] = SSjob.GetJobType(SSjob.overflow_role).title
 	data["window"] = current_window
 
-	data["content_unlocked"] = unlock_content
+	// data["content_unlocked"] = unlock_content // ARK STATION REMOVAL
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		data += preference_middleware.get_ui_static_data(user)

@@ -23,14 +23,6 @@
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "rends")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "rend")
 	var/after_use_message = ""
-	//set owner to find where blade linked
-	var/datum/antagonist/heretic/owner
-
-/obj/item/melee/sickly_blade/Destroy()
-	if(!isnull(owner))
-		LAZYREMOVE(owner.blades_list, src)
-		owner = null
-	return ..()
 
 /obj/item/melee/sickly_blade/attack(mob/living/M, mob/living/user)
 	if(!IS_HERETIC_OR_MONSTER(user))
@@ -42,7 +34,7 @@
 	return ..()
 
 /obj/item/melee/sickly_blade/attack_self(mob/user)
-	var/turf/safe_turf = find_safe_turf(zlevels = z, extended_safety_checks = TRUE)
+	var/turf/safe_turf = find_safe_turf(zlevel = z, extended_safety_checks = TRUE)
 	if(IS_HERETIC_OR_MONSTER(user))
 		if(do_teleport(user, safe_turf, channel = TELEPORT_CHANNEL_MAGIC))
 			to_chat(user, span_warning("As you shatter [src], you feel a gust of energy flow through your body. [after_use_message]"))

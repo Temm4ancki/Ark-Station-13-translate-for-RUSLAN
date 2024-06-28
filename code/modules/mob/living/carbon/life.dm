@@ -31,11 +31,7 @@
 		if(stat != DEAD)
 			handle_brain_damage(seconds_per_tick, times_fired)
 
-	if(stat == DEAD)
-		stop_sound_channel(CHANNEL_HEARTBEAT)
-	else
-		if(getStaminaLoss() > 0 && stam_regen_start_time <= world.time)
-			adjustStaminaLoss(-INFINITY)
+	if(stat != DEAD)
 		handle_bodyparts(seconds_per_tick, times_fired)
 
 	if(. && mind) //. == not dead
@@ -353,11 +349,6 @@
 	// Clear moodlet if no miasma at all.
 		clear_mood_event("smell")
 	else
-		// Miasma sickness
-		if(prob(1 * miasma_pp))
-			var/datum/disease/advance/miasma_disease = new /datum/disease/advance/random(max_symptoms = 2, max_level = 3)
-			miasma_disease.name = "Unknown"
-			ForceContractDisease(miasma_disease, make_copy = TRUE, del_on_fail = TRUE)
 		// Miasma side-effects.
 		if (HAS_TRAIT(src, TRAIT_ANOSMIA)) //We can't feel miasma without sense of smell
 			return
