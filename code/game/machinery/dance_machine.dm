@@ -80,7 +80,7 @@
 						it will be ready again in [DisplayTimeText(COOLDOWN_TIMELEFT(src, jukebox_song_cd))]."))
 					if(COOLDOWN_FINISHED(src, jukebox_error_cd))
 						playsound(src, 'sound/misc/compiler-failure.ogg', 33, TRUE)
-						COOLDOWN_START(src, jukebox_error_cd, 15 SECONDS)
+						COOLDOWN_START(src, jukebox_error_cd, 1 SECONDS)
 					return TRUE
 
 				activate_music()

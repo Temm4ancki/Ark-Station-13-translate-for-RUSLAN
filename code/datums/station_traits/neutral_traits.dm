@@ -4,7 +4,7 @@
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
 	cost = STATION_TRAIT_COST_LOW
-	report_message = "Rumors has it that the clown planet has been sending support packages to clowns in this system."
+	report_message = "Ходят слухи, что планета клоунов рассылает пакеты поддержки клоунам в этой системе."
 	trait_to_give = STATION_TRAIT_BANANIUM_SHIPMENTS
 
 /datum/station_trait/bananium_shipment/get_pulsar_message()
@@ -18,7 +18,7 @@
 	weight = 5
 	cost = STATION_TRAIT_COST_LOW
 	show_in_report = TRUE
-	report_message = "System's local planet has irregular atmospherical properties."
+	report_message = "Местная планетная система имеет нерегулярные атмосферные свойства."
 	trait_to_give = STATION_TRAIT_UNNATURAL_ATMOSPHERE
 
 	// This station trait modifies the atmosphere, which is too far past the time admins are able to revert it
@@ -28,7 +28,7 @@
 	name = "Spider Infestation"
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 5
-	report_message = "We have introduced a natural countermeasure to reduce the number of rodents on board your station."
+	report_message = "Мы ввели естественную контрмеру для уменьшения количества грызунов на борту вашей станции.."
 	trait_to_give = STATION_TRAIT_SPIDER_INFESTATION
 
 /datum/station_trait/unique_ai
@@ -37,8 +37,8 @@
 	trait_flags = parent_type::trait_flags | STATION_TRAIT_REQUIRES_AI
 	weight = 5
 	show_in_report = TRUE
-	report_message = "For experimental purposes, this station AI might show divergence from default lawset. Do not meddle with this experiment, we've removed \
-		access to your set of alternative upload modules because we know you're already thinking about meddling with this experiment."
+	report_message = "В экспериментальных целях ИИ этой станции может показывать отклонение от набора законов по умолчанию. Не лезьте в этот эксперимент, мы удалили \
+		доступ к вашему набору альтернативных модулей загрузки, поскольку мы знаем, что вы уже подумываете о вмешательстве в этот эксперимент."
 	trait_to_give = STATION_TRAIT_UNIQUE_AI
 
 /datum/station_trait/unique_ai/on_round_start()
@@ -52,7 +52,7 @@
 	weight = 5
 	show_in_report = FALSE
 	cost = STATION_TRAIT_COST_LOW
-	report_message = "Ian has gone exploring somewhere in the station."
+	report_message = "Ian отправился на разведку куда-то на станцию."
 
 /datum/station_trait/ian_adventure/on_round_start()
 	for(var/mob/living/basic/pet/dog/corgi/dog in GLOB.mob_list)
@@ -112,7 +112,7 @@
 	weight = 5
 	show_in_report = TRUE
 	cost = STATION_TRAIT_COST_MINIMAL
-	report_message = "Something seems to be wrong with the PDAs issued to you all this shift. Nothing too bad though."
+	report_message = "Кажется, что-то не так с ПДА, выданными вам всю эту смену. Хотя ничего страшного."
 	trait_to_give = STATION_TRAIT_PDA_GLITCHED
 
 /datum/station_trait/announcement_intern
@@ -120,7 +120,7 @@
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 1
 	show_in_report = TRUE
-	report_message = "Please be nice to him."
+	report_message = "Пожалуйста, будьте с ним добры."
 	blacklist = list(/datum/station_trait/announcement_medbot, /datum/station_trait/birthday)
 
 /datum/station_trait/announcement_intern/New()
@@ -137,7 +137,7 @@
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 1
 	show_in_report = TRUE
-	report_message = "Our announcement system is under scheduled maintanance at the moment. Thankfully, we have a backup."
+	report_message = "В настоящее время наша система объявлений находится на плановом техническом обслуживании. К счастью, у нас есть резервная копия."
 	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/birthday)
 
 /datum/station_trait/announcement_medbot/New()
@@ -150,7 +150,7 @@
 	weight = 10
 	show_in_report = TRUE
 	cost = STATION_TRAIT_COST_MINIMAL
-	report_message = "Due to a shortage in standard issue jumpsuits, we have provided your assistants with one of our backup supplies."
+	report_message = "В связи с нехваткой стандартных комбинезонов мы предоставили вашим помощникам один из наших резервных запасов."
 	blacklist = list(/datum/station_trait/assistant_gimmicks)
 
 /datum/station_trait/colored_assistants/New()
@@ -164,7 +164,7 @@
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 2
 	show_in_report = TRUE
-	report_message = "We here at Nanotrasen would all like to wish Employee Name a very happy birthday"
+	report_message = "Мы в Nanotrasen хотели бы поздравить Employee Name с днём рождения."
 	trait_to_give = STATION_TRAIT_BIRTHDAY
 	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/announcement_medbot) //Overiding the annoucer hides the birthday person in the annoucement message.
 	///Variable that stores a reference to the person selected to have their birthday celebrated.
@@ -215,8 +215,8 @@
 
 
 /datum/station_trait/birthday/proc/announce_birthday()
-	report_message = "We here at Nanotrasen would all like to wish [birthday_person ? birthday_person_name : "Employee Name"] a very happy birthday."
-	priority_announce("Happy birthday to [birthday_person ? birthday_person_name : "Employee Name"]! Nanotrasen wishes you a very happy [birthday_person ? thtotext(birthday_person.age + 1) : "255th"] birthday.")
+	report_message = "Мы в Nanotrasen хотели бы пожелать [birthday_person ? birthday_person_name : "Employee Name"] очень счастливого дня рождения."
+	priority_announce("С днём рождения [birthday_person ? birthday_person_name : "Employee Name"]! Nanotrasen желает вам счастливого [birthday_person ? thtotext(birthday_person.age + 1) : "255th"] дня рождения.")
 	if(birthday_person)
 		playsound(birthday_person, 'sound/items/party_horn.ogg', 50)
 		birthday_person.add_mood_event("birthday", /datum/mood_event/birthday)
@@ -301,12 +301,12 @@
 /datum/station_trait/scarves/New()
 	. = ..()
 	report_message = pick(
-		"Nanotrasen is experimenting with seeing if neck warmth improves employee morale.",
-		"After Space Fashion Week, scarves are the hot new accessory.",
-		"Everyone was simultaneously a little bit cold when they packed to go to the station.",
-		"The station is definitely not under attack by neck grappling aliens masquerading as wool. Definitely not.",
-		"You all get free scarves. Don't ask why.",
-		"A shipment of scarves was delivered to the station.",
+		"Nanotrasen экспериментирует с целью выяснить, улучшает ли тепло шеи моральный дух сотрудников.",
+		"После Недели космической моды шарфы стали новым модным аксессуаром.",
+		"Всем одновременно было немного холодно, когда они собирались на станцию.",
+		"Станция определенно не подвергается нападению инопланетян, схватившихся за шею и маскирующихся под шерсть. Точно нет.",
+		"Вы все получите бесплатные шарфы. Не спрашивайте почему.",
+		"На станцию доставили партию шарфов.",
 	)
 	scarves = typesof(/obj/item/clothing/neck/scarf) + list(
 		/obj/item/clothing/neck/large_scarf/red,
@@ -329,7 +329,7 @@
 	show_in_report = TRUE
 	weight = 5
 	cost = STATION_TRAIT_COST_MINIMAL
-	report_message = "It has become temporarily fashionable to use a wallet, so everyone on the station has been issued one."
+	report_message = "Пользоваться кошельком временно стало модно, поэтому всем на станции его выдали."
 
 /datum/station_trait/wallets/New()
 	. = ..()
@@ -371,14 +371,14 @@
 	trait_flags = STATION_TRAIT_PLANETARY
 	weight = 10
 	show_in_report = TRUE
-	report_message = "There sure are a lot of trees out there."
+	report_message = "Там наверняка много деревьев."
 
 /datum/station_trait/linked_closets
 	name = "Closet Anomaly"
 	trait_type = STATION_TRAIT_NEUTRAL
 	show_in_report = TRUE
 	weight = 1
-	report_message = "We've reports of high amount of trace eigenstasium on your station. Ensure that your closets are working correctly."
+	report_message = "У нас есть сообщения о большом количестве следов eigenstasium на вашей станции. Убедитесь, что ваши шкафы работают правильно."
 
 /datum/station_trait/linked_closets/on_round_start()
 	. = ..()
@@ -414,7 +414,7 @@
 	trait_flags = parent_type::trait_flags | STATION_TRAIT_REQUIRES_AI
 	show_in_report = TRUE
 	weight = 0 // NOVA EDIT Original = 1
-	report_message = "Your station has been instated with three Nanotrasen Artificial Intelligence models."
+	report_message = "На вашей станции установлены три модели искусственного интеллекта Nanotrasen."
 
 /datum/station_trait/triple_ai/New()
 	. = ..()
@@ -573,8 +573,8 @@
 
 /// Crew don't ever spawn as enemies of the station. Obsesseds, blob infection, space changelings etc can still happen though
 /datum/station_trait/background_checks
-	name = "Station-Wide Background Checks"
-	report_message = "We replaced the intern doing your crew's background checks with a trained screener for this shift! That said, our enemies may just find another way to infiltrate the station, so be careful."
+	name = "Проверка анкетных данных по всей станции"
+	report_message = "Мы заменили стажера, проверяющего биографические данные вашей команды, на специально обученного проверяющего для этой смены! Тем не менее, наши враги могут найти другой способ проникнуть на станцию, так что будьте осторожны."
 	trait_type = STATION_TRAIT_NEUTRAL
 	weight = 1
 	show_in_report = TRUE
