@@ -505,7 +505,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	if(!user)
 		return
 
-	var/image/restraints_icon = image(icon = 'icons/obj/restraints.dmi', icon_state = "cuff")
+	var/image/restraints_icon = image(icon = 'icons/obj/weapons/restraints.dmi', icon_state = "cuff")
 	restraints_icon.maptext = MAPTEXT("<span [amount >= CABLE_RESTRAINTS_COST ? "" : "style='color: red'"]>[CABLE_RESTRAINTS_COST]</span>")
 	restraints_icon.color = color
 
@@ -559,7 +559,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 				if(use(CABLE_RESTRAINTS_COST))
 					var/obj/item/restraints/handcuffs/cable/restraints = new(null, cable_color)
 					user.put_in_hands(restraints)
-		if("Noose") // ARK STATION ADDITION
+		if("Noose") // ARK STATION ADDITION START
 			if(amount < 30)
 				to_chat(user, "<span class='notice'>You don't have enough cable coil to make noose out of them</span>")
 				return
@@ -570,7 +570,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 			if(!do_after(user, 3 SECONDS, user) || !use(30))
 				to_chat(user, "<span class='notice'>You fail to make cable noose, you need to be standing still to do it</span>")
 				return
-			new /obj/structure/chair/noose(get_turf(user))
+			new /obj/structure/chair/noose(get_turf(user)) // ARK STATION ADDITION END
 	update_appearance()
 
 
@@ -593,7 +593,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		if(!do_after(user, (user == H ? self_delay : other_delay)))
 			return
 		// NOVA EDIT CHANGE END
-		if(item_heal_robotic(H, user, 0, 15))
+		if(H.item_heal(user, 0, 15, "dents", "burnt wires", BODYTYPE_ROBOTIC))
 			user.visible_message(span_green("[user] fixes some of the wires in to [H]'s [affecting.name]."), span_green("You fix some of the wires in [H == user ? "your" : "[H]'s"] [affecting.name].")) // NOVA EDIT ADD
 			use(1)
 		return

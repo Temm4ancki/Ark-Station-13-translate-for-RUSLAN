@@ -174,54 +174,6 @@
 	extra_price = PAYCHECK_COMMAND * 1.75
 	payment_department = ACCOUNT_SEC
 
-
-/// DeusVend
-
-/obj/machinery/vending/wardrobe/chap_wardrobe
-	name = "DeusVend"
-	desc = "God wills your purchase."
-	icon_state = "chapdrobe"
-	product_ads = "Are you being bothered by cultists or pesky revenants? Then come and dress like the holy man!;Clothes for men of the cloth!"
-	vend_reply = "Thank you for using the DeusVend!"
-	products = list(
-		/obj/item/choice_beacon/holy = 1,
-		/obj/item/clothing/accessory/pocketprotector/cosmetology = 1,
-		/obj/item/clothing/under/rank/civilian/chaplain = 1,
-		/obj/item/clothing/under/rank/civilian/chaplain/skirt = 2,
-		/obj/item/clothing/shoes/sneakers/black = 1,
-		/obj/item/clothing/suit/chaplainsuit/nun = 1,
-		/obj/item/clothing/head/chaplain/nun_hood = 1,
-		/obj/item/clothing/suit/chaplainsuit/holidaypriest = 1,
-		/obj/item/clothing/suit/hooded/chaplainsuit/monkhabit = 1,
-		/obj/item/clothing/head/chaplain/kippah = 3,
-		/obj/item/clothing/suit/chaplainsuit/whiterobe = 1,
-		/obj/item/clothing/head/chaplain/taqiyah/white = 1,
-		/obj/item/clothing/head/chaplain/taqiyah/red = 3,
-		/obj/item/clothing/suit/chaplainsuit/monkrobeeast = 1,
-		/obj/item/clothing/head/rasta = 1,
-		/obj/item/clothing/suit/chaplainsuit/shrinehand = 1,
-		/obj/item/storage/backpack/cultpack = 1,
-		/obj/item/storage/fancy/candle_box = 2,
-		/obj/item/radio/headset/headset_srv = 2,
-		/obj/item/clothing/suit/chaplainsuit/habit = 1,
-		/obj/item/clothing/head/chaplain/habit_veil = 1,
-		/obj/item/clothing/neck/cross = 8,
-		/obj/item/clothing/neck/bandagewraps = 3,
-	)
-	contraband = list(
-		/obj/item/toy/plush/ratplush = 1,
-		/obj/item/toy/plush/narplush = 1,
-	)
-	premium = list(
-		/obj/item/clothing/head/chaplain/bishopmitre = 1,
-		/obj/item/clothing/suit/chaplainsuit/bishoprobe = 1,
-		/obj/item/clothing/head/chaplain/medievaljewhat = 3,
-		/obj/item/clothing/head/chaplain/clownmitre = 1,
-		/obj/item/clothing/suit/chaplainsuit/clownpriest = 1,
-	)
-	refill_canister = /obj/item/vending_refill/wardrobe/chap_wardrobe
-	payment_department = ACCOUNT_SRV
-
 /// Medidrobe
 
 /obj/machinery/vending/wardrobe/medi_wardrobe
@@ -499,8 +451,6 @@
 			"products" = list(
 				/obj/item/clothing/under/syndicate/tacticool = 2,
 				/obj/item/clothing/under/syndicate/tacticool/skirt = 2,
-				/obj/item/clothing/under/syndicate/tacticool/black = 2,
-				/obj/item/clothing/suit/furcoat = 2,
 				/obj/item/clothing/mask/gas/nightlight = 2,
 				/obj/item/clothing/mask/gas/nightlight/fir22 = 1,
 				/obj/item/clothing/head/caligram_cap = 3,
@@ -531,7 +481,6 @@
 			"products" = list(
 				/obj/item/clothing/under/syndicate/tacticool = 2,
 				/obj/item/clothing/under/syndicate/tacticool/skirt = 2,
-				/obj/item/clothing/under/syndicate/tacticool/black = 2,
 				/obj/item/clothing/under/syndicate = 2,
 				/obj/item/clothing/under/syndicate/skirt = 2,
 				/obj/item/clothing/under/syndicate/inteq = 2,
@@ -617,6 +566,9 @@
 			"icon" = "globe-americas",
 			"products" = list(
 				/obj/item/clothing/under/pants/nova/jeans_ripped = 5,
+				/obj/item/clothing/under/pants/nova/big_pants = 5,
+				/obj/item/clothing/under/dress/skirt/nova/loincloth = 5,
+				/obj/item/clothing/under/dress/skirt/nova/loincloth/loincloth_alt = 5,
 				/obj/item/clothing/under/shorts/nova/shorts_ripped = 5,
 				/obj/item/clothing/under/pants/nova/yoga = 5,
 				/obj/item/clothing/under/misc/nova/mechanic = 5,
@@ -652,6 +604,79 @@
 				/obj/item/clothing/under/dress/nova/short_dress = 5,
 				/obj/item/clothing/under/dress/nova/pinktutu = 5,
 				/obj/item/clothing/under/dress/skirt/nova/jean = 5,
+				/obj/item/clothing/neck/ranger_poncho = 5,
+				/obj/item/clothing/neck/cloak/colourable = 5,
+				/obj/item/clothing/neck/cloak/colourable/veil = 5,
+				/obj/item/clothing/neck/cloak/colourable/shroud = 5,
+				/obj/item/clothing/neck/cloak/colourable/boat = 5,
+				/obj/item/clothing/neck/mantle/recolorable = 5,
+				/obj/item/clothing/neck/long_cape = 5,
+				/obj/item/clothing/neck/wide_cape = 5,
+				/obj/item/clothing/neck/robe_cape = 5,
+				/obj/item/clothing/glasses/regular/betterunshit = 5,
+				/obj/item/clothing/glasses/thin = 5,
+				/obj/item/clothing/glasses/hud/ar/projector = 5,
+				/obj/item/clothing/neck/face_scarf = 5,
+				/obj/item/clothing/gloves/bracer/wraps,
+				/obj/item/clothing/head/cowboy/nova/cattleman = 5,
+				/obj/item/clothing/head/cowboy/nova/cattleman/wide = 5,
+				/obj/item/clothing/head/cowboy/nova/wide = 5,
+				/obj/item/clothing/head/cowboy/nova/wide/feathered = 5,
+				/obj/item/clothing/head/cowboy/nova/flat = 5,
+				/obj/item/clothing/head/cowboy/nova/flat/cowl = 5,
+				/obj/item/clothing/head/cowboy/nova/flat/sheriff = 5,
+				/obj/item/clothing/head/cowboy/nova/flat/deputy = 5,
+				/obj/item/clothing/head/cowboy/nova/flat/cowl/sheriff = 5,
+				/obj/item/clothing/under/costume/nova/bathrobe = 5,
+				/obj/item/clothing/under/dress/skirt/nova/lone_skirt = 5,
+				/obj/item/clothing/under/dress/skirt/nova/turtleskirt_knit = 5,
+				/obj/item/clothing/under/dress/nova/short_dress = 5,
+				/obj/item/clothing/under/dress/nova/pinktutu = 5,
+				/obj/item/clothing/under/dress/skirt/nova/jean = 5,
+				/obj/item/clothing/under/dress/nova/flower = 5,
+				/obj/item/clothing/under/dress/nova/strapless = 5,
+				/obj/item/clothing/under/dress/nova/pentagram = 5,
+				/obj/item/clothing/suit/varsity = 5,
+				/obj/item/clothing/suit/toggle/jacket = 5,
+				/obj/item/clothing/suit/toggle/jacket/flannel/gags = 5,
+				/obj/item/clothing/suit/toggle/jacket/flannel = 5,
+				/obj/item/clothing/suit/toggle/jacket/flannel/red = 5,
+				/obj/item/clothing/suit/toggle/jacket/flannel/aqua = 5,
+				/obj/item/clothing/suit/toggle/jacket/flannel/brown = 5,
+				/obj/item/clothing/suit/toggle/jacket/hoodie = 5,
+				/obj/item/clothing/suit/toggle/jacket/hoodie/trim = 5,
+				/obj/item/clothing/suit/toggle/jacket/hoodie/trim/alt = 5,
+				/obj/item/clothing/suit/toggle/jacket/hoodie/branded = 5,
+				/obj/item/clothing/suit/toggle/jacket/hoodie/branded/cti = 5,
+				/obj/item/clothing/suit/toggle/jacket/hoodie/branded/mu = 5,
+				/obj/item/clothing/suit/toggle/jacket/hoodie/branded/smw = 5,
+				/obj/item/clothing/suit/toggle/jacket/hoodie/branded/nrti = 5,
+				/obj/item/clothing/suit/toggle/jacket/cardigan = 5,
+				/obj/item/clothing/suit/toggle/peacoat = 5,
+				/obj/item/clothing/suit/toggle/trackjacket = 5,
+				/obj/item/clothing/suit/toggle/lawyer/white = 5,
+				/obj/item/clothing/suit/urban = 5,
+				/obj/item/clothing/suit/duster = 5,
+				/obj/item/clothing/suit/fallsparka = 5,
+				/obj/item/clothing/suit/jacket/croptop = 5,
+				/obj/item/clothing/suit/jacket/white_robe = 5,
+				/obj/item/clothing/suit/modernwintercoatthing = 5,
+				/obj/item/clothing/suit/hooded/wintercoat/colourable = 5,
+				/obj/item/clothing/suit/apron/chef/colorable_apron = 5,
+				/obj/item/clothing/suit/warm_coat = 5,
+				/obj/item/clothing/suit/warm_sweater = 5,
+				/obj/item/clothing/suit/heart_sweater = 5,
+				/obj/item/clothing/suit/crop_jacket = 5,
+				/obj/item/clothing/suit/big_jacket = 5,
+				/obj/item/clothing/suit/dagger_mantle = 5,
+				/obj/item/clothing/head/costume/hairpin = 2,
+				/obj/item/clothing/under/costume/yukata = 2,
+				/obj/item/clothing/under/costume/yukata/green = 2,
+				/obj/item/clothing/under/costume/yukata/white = 2,
+				/obj/item/clothing/under/costume/kimono = 2,
+				/obj/item/clothing/under/costume/kimono/red = 2,
+				/obj/item/clothing/under/costume/kimono/purple = 2,
+				/obj/item/clothing/shoes/sandal/alt = 4,
 			),
 		),
 	)

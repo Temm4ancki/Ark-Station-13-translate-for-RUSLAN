@@ -100,7 +100,6 @@
 /datum/loadout_item/under/jumpsuit/leotard/color
 	name = "Colored Leotard"
 	item_path = /obj/item/clothing/under/arkstation/leotard/color
-	additional_tooltip_contents = list(TOOLTIP_GREYSCALE)
 
 /datum/loadout_item/under/jumpsuit/half_moon
 	name = "Half Moon Undersuit"
@@ -152,6 +151,6 @@
 	name = "Snufkin's Hat"
 	item_path = /obj/item/clothing/head/hats/snufkin_hat
 
-/datum/loadout_item/under/head/gwen_bow
+/datum/loadout_item/head/gwen_bow
 	name = "Doll bow"
 	item_path = /obj/item/clothing/head/hats/gwen_bow

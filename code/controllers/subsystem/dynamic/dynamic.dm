@@ -950,7 +950,9 @@ SUBSYSTEM_DEF(dynamic)
 		ruleset.restricted_roles |= ruleset.protected_roles
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
 		ruleset.restricted_roles |= JOB_ASSISTANT
-	// NOVA EDIT ADDITION
+	if(!(ruleset.ruleset_category & GLOB.dynamic_ruleset_categories))
+		ruleset.requirements = list(101,101,101,101,101,101,101,101,101,101)
+	// NOVA EDIT ADDITION START
 	for(var/datum/job/iterating_job as anything in subtypesof(/datum/job))
 		if(!initial(iterating_job.antagonist_restricted))
 			continue
@@ -961,7 +963,7 @@ SUBSYSTEM_DEF(dynamic)
 			ruleset.restricted_roles |= initial(iterating_job.title)
 		else
 			ruleset.restricted_roles |= initial(iterating_job.title)
-	// NOVA EDIT END
+	// NOVA EDIT ADDITION END
 
 /// Get station traits and call for their config
 /datum/controller/subsystem/dynamic/proc/configure_station_trait_costs()
@@ -1016,7 +1018,7 @@ SUBSYSTEM_DEF(dynamic)
 #define MAXIMUM_DYN_DISTANCE 5
 
 /**
- * Returns the comulative distribution of threat centre and width, and a random location of -0.5 to 0.5
+ * Returns the comulative distribution of threat centre and width, and a random location of -5 to 5
  * plus or minus the otherwise unattainable lower and upper percentiles. All multiplied by the maximum
  * threat and then rounded to the nearest interval.
  * rand() calls without arguments returns a value between 0 and 1, allowing for smaller intervals.

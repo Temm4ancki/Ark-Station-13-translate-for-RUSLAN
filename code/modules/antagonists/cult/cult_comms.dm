@@ -54,7 +54,7 @@
 	var/span = "cult italic"
 	var/datum/antagonist/cult/cult_datum = user.mind.has_antag_datum(/datum/antagonist/cult)
 	if(cult_datum.is_cult_leader())
-		span = "cultlarge"
+		span = "cult_large" // ARK STATION FIX
 		title = "Master"
 	else if(!ishuman(user))
 		title = "Construct"
@@ -236,13 +236,13 @@
 					switch(i)
 						if(1)
 							new /obj/effect/temp_visual/cult/sparks(mobloc, B.current.dir)
-							playsound(mobloc, 'sound/effects/portal_travel.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+							playsound(mobloc, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 						if(2)
 							new /obj/effect/temp_visual/dir_setting/cult/phase/out(mobloc, B.current.dir)
-							playsound(mobloc, 'sound/effects/portal_travel.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+							playsound(mobloc, SFX_PORTAL_ENTER, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 						if(3)
 							new /obj/effect/temp_visual/dir_setting/cult/phase(mobloc, B.current.dir)
-							playsound(mobloc, 'sound/effects/portal_travel.ogg', 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+							playsound(mobloc, SFX_PORTAL_ENTER, 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 						if(4)
 							playsound(mobloc, 'sound/magic/exit_blood.ogg', 100, TRUE)
 							if(B.current != owner)

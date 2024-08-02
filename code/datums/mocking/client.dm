@@ -44,7 +44,10 @@
 	return ..()
 
 /datum/client_interface/proc/IsByondMember()
-	return TRUE // ARK STATION EDIT
+	return FALSE
 
 /datum/client_interface/proc/set_macros()
+	return
+
+/datum/client_interface/proc/update_ambience_pref()
 	return
